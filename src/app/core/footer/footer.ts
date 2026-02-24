@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IAppInfo } from '../../shared/models/appInfo';
 
 @Component({
   selector: 'sport-footer',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './footer.css',
 })
 export class Footer {
-
+  public footerConfig:IAppInfo = {
+    title: 'FOOTER',
+    year: new Date().getFullYear()
+  }
 }
