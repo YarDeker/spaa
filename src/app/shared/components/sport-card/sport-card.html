@@ -1,0 +1,57 @@
+<div class="sport-card">
+
+  <img [src]="activity.imageUrl" [alt]="activity.title">
+
+  <h2>{{ activity.title }}</h2>
+
+  <p>{{ activity.description }}</p>
+
+  <p>
+    <strong>Type:</strong> {{ activity.type }}
+  </p>
+
+  <p>
+    <strong>Difficulty:</strong> {{ activity.difficulty }}
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    {{ activity.price | currency:'USD' }}
+  </p>
+
+  <p>
+    <strong>Rating:</strong>
+    {{ activity.rating }}
+  </p>
+
+  <p>
+    <strong>Start date:</strong>
+    {{ activity.startDate | date:'dd.MM.yyyy' }}
+  </p>
+
+  <p>
+    <strong>Created:</strong>
+    {{ activity.createdAt | date:'dd.MM.yyyy' }}
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    {{ activity.location.name }},
+    {{ activity.location.city }}
+  </p>
+
+  <p>
+    <strong>Coach:</strong>
+    {{ activity.coach.fullName }}
+    ({{ activity.coach.experienceYears }} years experience)
+  </p>
+
+  <div class="tags">
+    @for (tag of activity.tags; track $index) {
+        <span>
+          {{ tag }}
+        </span>
+    }
+  </div>
+
+</div>

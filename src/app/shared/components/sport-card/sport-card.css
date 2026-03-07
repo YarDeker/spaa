@@ -1,0 +1,13 @@
+.sport-card img {
+    max-width: 400px;
+    width: 100%;
+}
+
+.sport-card {
+    max-width: 350px;
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
