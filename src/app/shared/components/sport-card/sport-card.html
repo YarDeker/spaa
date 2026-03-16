@@ -1,4 +1,4 @@
-<div class="sport-card">
+<div class="sport-card" [style.box-shadow]="activity.is_discount ? '0 0 5px blue' : 'none'">
   @if(activity.is_discount) {
     <div class="dicount-block">
       DISCOUNT
