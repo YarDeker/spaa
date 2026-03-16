@@ -1,5 +1,7 @@
 <div class="sport-list">
     @for (sport of sportList; track sport.id) {
-      <sport-sport-card [activity]="sport"></sport-sport-card>
+      <sport-sport-card [activity]="sport" 
+      (cardAction)="handleCardAction($event)"
+      ></sport-sport-card>
     }
 </div>

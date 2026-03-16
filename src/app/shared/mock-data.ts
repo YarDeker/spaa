@@ -9,6 +9,7 @@ export const SPORT_ACTIVITIES: SportActivity[] = [
 
     rating: 4.5,
     price: 25,
+    is_discount: false,
 
     createdAt: new Date('2025-01-10'),
     startDate: new Date('2025-04-01'),
@@ -39,6 +40,7 @@ export const SPORT_ACTIVITIES: SportActivity[] = [
 
     rating: 4.8,
     price: 15,
+    is_discount: true,
 
     createdAt: new Date('2025-02-15'),
     startDate: new Date('2025-03-20'),
@@ -69,14 +71,14 @@ export const SPORT_ACTIVITIES: SportActivity[] = [
 
     rating: 4.2,
     price: 40,
+    is_discount: false,
 
     createdAt: new Date('2024-12-01'),
-    startDate: new Date('2025-05-10'),
+    startDate: new Date('2026-05-10'),
 
     type: SportType.Extreme,
     difficulty: DifficultyLevel.Advanced,
 
-    tags: ['adventure', 'outdoor', 'endurance'],
     availableDays: ['Saturday'],
 
     location: {
@@ -99,6 +101,7 @@ export const SPORT_ACTIVITIES: SportActivity[] = [
 
     rating: 4.7,
     price: 20,
+    is_discount: false,
 
     createdAt: new Date('2025-01-25'),
     startDate: new Date('2025-03-05'),
@@ -106,7 +109,6 @@ export const SPORT_ACTIVITIES: SportActivity[] = [
     type: SportType.Water,
     difficulty: DifficultyLevel.Beginner,
 
-    tags: ['water', 'kids', 'health'],
     availableDays: ['Monday', 'Thursday'],
 
     location: {
@@ -129,9 +131,10 @@ export const SPORT_ACTIVITIES: SportActivity[] = [
 
     rating: 4.3,
     price: 120,
+    is_discount: true,
 
     createdAt: new Date('2024-11-20'),
-    startDate: new Date('2025-12-15'),
+    startDate: new Date('2026-12-15'),
 
     type: SportType.Winter,
     difficulty: DifficultyLevel.Advanced,

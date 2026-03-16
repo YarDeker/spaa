@@ -33,6 +33,7 @@ export interface SportActivity {
 
   rating: number; 
   price: number;
+  is_discount: boolean;
 
   createdAt: Date; 
   startDate: Date;
@@ -40,7 +41,7 @@ export interface SportActivity {
   type: SportType; 
   difficulty: DifficultyLevel; 
 
-  tags: string[]; 
+  tags?: string[]; 
   availableDays: string[]; 
 
   location: Location;

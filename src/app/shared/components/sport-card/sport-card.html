@@ -1,17 +1,48 @@
 <div class="sport-card">
+  @if(activity.is_discount) {
+    <div class="dicount-block">
+      DISCOUNT
+    </div>
+  }
 
   <img [src]="activity.imageUrl" [alt]="activity.title">
 
   <h2>{{ activity.title }}</h2>
-
-  <p>{{ activity.description }}</p>
 
   <p>
     <strong>Type:</strong> {{ activity.type }}
   </p>
 
   <p>
-    <strong>Difficulty:</strong> {{ activity.difficulty }}
+    <strong>Difficulty: </strong>
+
+      @switch (activity.difficulty) {
+
+      @case ('Beginner') {
+        <span class="badge green">
+          Begginer
+        </span>
+      }
+
+      @case ('Intermediate') {
+        <span class="badge red">
+          Intermediate
+        </span>
+      }
+
+      @case ('Advanced') {
+        <span class="badge yellow">
+          Advanced
+        </span>
+      }
+
+      @default {
+        <span class="badge gray">
+          Unknown
+        </span>
+      }
+
+    }
   </p>
 
   <p>
@@ -29,25 +60,22 @@
     {{ activity.startDate | date:'dd.MM.yyyy' }}
   </p>
 
-  <p>
-    <strong>Created:</strong>
-    {{ activity.createdAt | date:'dd.MM.yyyy' }}
-  </p>
+  @if (isOngoing) {
 
-  <p>
-    <strong>Location:</strong>
-    {{ activity.location.name }},
-    {{ activity.location.city }}
-  </p>
+    <button (click)="onBtnClick()" class="buy-btn">
+      ORDER
+    </button>
 
-  <p>
-    <strong>Coach:</strong>
-    {{ activity.coach.fullName }}
-    ({{ activity.coach.experienceYears }} years experience)
-  </p>
+  } @else {
+
+    <button class="disabled-btn" disabled>
+      Coming soon
+    </button>
+
+  }
 
   <div class="tags">
-    @for (tag of activity.tags; track $index) {
+    @for (tag of activity?.tags; track $index) {
         <span>
           {{ tag }}
         </span>
