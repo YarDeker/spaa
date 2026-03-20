@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SportCard } from "../../../shared/components/sport-card/sport-card";
 import { SPORT_ACTIVITIES } from '../../../shared/mock-data';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'sport-sport-list',
-  imports: [SportCard],
+  imports: [SportCard, FormsModule],
   templateUrl: './sport-list.html',
   styleUrl: './sport-list.css',
 })
