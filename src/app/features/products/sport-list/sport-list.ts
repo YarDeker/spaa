@@ -10,10 +10,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './sport-list.css',
 })
 export class SportList {
-  public sportList = SPORT_ACTIVITIES;
+  public allProducts = SPORT_ACTIVITIES;
+  public filteredProducts = this.allProducts;
   public searchQuery:string = '';
 
   handleCardAction(id: number) {
     console.log(`Користувач натиснув кнопку на товарі з ID: ${id}`);
+  }
+
+  filterItems() {
+    this.filteredProducts = this.allProducts.filter(val => val.title.toLowerCase().includes(this.searchQuery.toLowerCase()))
   }
 }
