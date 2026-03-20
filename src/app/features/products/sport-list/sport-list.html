@@ -1,7 +1,13 @@
-<div class="sport-list">
-    @for (sport of sportList; track sport.id) {
-      <sport-sport-card [activity]="sport" 
-      (cardAction)="handleCardAction($event)"
-      ></sport-sport-card>
-    }
+<div class="sports-container">
+  <div class="search-block">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search...">
+  </div>
+  
+  <div class="sport-list">
+      @for (sport of sportList; track sport.id) {
+        <sport-sport-card [activity]="sport" 
+        (cardAction)="handleCardAction($event)"
+        ></sport-sport-card>
+      }
+  </div>
 </div>

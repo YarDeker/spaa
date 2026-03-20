@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SportList {
   public sportList = SPORT_ACTIVITIES;
+  public searchQuery:string = 'begginer';
 
   handleCardAction(id: number) {
     console.log(`Користувач натиснув кнопку на товарі з ID: ${id}`);
