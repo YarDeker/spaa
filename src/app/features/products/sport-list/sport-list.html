@@ -1,13 +1,16 @@
 <div class="sports-container">
   <p style="text-align: center; font-weight: bold; margin-top: 1em; font-size: 1.2em;">{{searchQuery}}</p>
   <div class="search-block">
-    <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="filterItems()" placeholder="Search...">
+    <input type="text" #searchInput [(ngModel)]="searchQuery" (ngModelChange)="filterItems()" placeholder="Search...">
     <div>
       <select [(ngModel)]="selectedCategory" name="" id="">
         @for(level of levels; track level) {
           <option [value]="level">{{level}}</option>
         }
       </select>
+    </div>
+    <div>
+      <button (click)="resetFilters(searchInput)">CLEAR</button>
     </div>
   </div>
   <div class="sport-list">

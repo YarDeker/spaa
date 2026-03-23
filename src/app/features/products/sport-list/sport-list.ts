@@ -31,4 +31,12 @@ export class SportList {
       (this.selectedCategory === 'All' || val.difficulty === this.selectedCategory)
     )
   }
+
+  resetFilters(searchInput:any) {
+    this.selectedCategory = 'All';
+    this.searchQuery = '';
+    this.filterItems();
+
+    searchInput.focus();
+  }
 }
