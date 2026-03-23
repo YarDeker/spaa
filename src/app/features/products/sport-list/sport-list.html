@@ -2,8 +2,14 @@
   <p style="text-align: center; font-weight: bold; margin-top: 1em; font-size: 1.2em;">{{searchQuery}}</p>
   <div class="search-block">
     <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="filterItems()" placeholder="Search...">
+    <div>
+      <select [(ngModel)]="selectedCategory" name="" id="">
+        @for(level of levels; track level) {
+          <option [value]="level">{{level}}</option>
+        }
+      </select>
+    </div>
   </div>
-  
   <div class="sport-list">
       @for (sport of filteredProducts; track sport.id) {
         <sport-sport-card [activity]="sport" 

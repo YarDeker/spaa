@@ -9,7 +9,7 @@ export enum SportType {
 export enum DifficultyLevel {
   Beginner = 'Beginner',
   Intermediate = 'Intermediate',
-  Advanced = 'Advanced'
+  Advanced = 'Advanced',
 }
 
 export interface Location {
