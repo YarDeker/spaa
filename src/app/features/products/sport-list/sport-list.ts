@@ -17,7 +17,7 @@ export class SportList {
   public filteredProducts = this.allProducts;
   public searchQuery:string = '';
   public levels:string[] = this.getLevel();
-  public selectedCategory: string = '';
+  public selectedCategory: string = 'All';
 
   ngOnInit() {
     this.allProducts = this.sportService.getAll();
@@ -34,10 +34,7 @@ export class SportList {
   }
 
   filterItems() {
-    this.filteredProducts = this.allProducts.filter(val => 
-      val.title.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
-      (this.selectedCategory === 'All' || val.difficulty === this.selectedCategory)
-    )
+    this.filteredProducts = this.sportService.filterItems(this.searchQuery, this.selectedCategory)
   }
 
   resetFilters(searchInput:any) {

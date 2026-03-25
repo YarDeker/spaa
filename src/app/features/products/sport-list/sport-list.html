@@ -3,7 +3,7 @@
   <div class="search-block">
     <input type="text" #searchInput [(ngModel)]="searchQuery" (ngModelChange)="filterItems()" placeholder="Search...">
     <div>
-      <select [(ngModel)]="selectedCategory" name="" id="">
+      <select [(ngModel)]="selectedCategory" (change)="filterItems()" name="" id="">
         @for(level of levels; track level) {
           <option [value]="level">{{level}}</option>
         }
