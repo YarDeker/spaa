@@ -21,7 +21,7 @@ export class SportList {
 
   ngOnInit() {
     this.allProducts = this.sportService.getAll();
-    this.filteredProducts = [...this.allProducts];
+    this.filteredProducts = [...this.sportService.getAll()];
   }
 
   getLevel () {
@@ -29,7 +29,8 @@ export class SportList {
   }
 
   handleCardAction(id: number) {
-    console.log(`Користувач натиснув кнопку на товарі з ID: ${id}`);
+    this.sportService.deleteItem(id);
+    this.filteredProducts = [...this.sportService.getAll()]
   }
 
   filterItems() {
