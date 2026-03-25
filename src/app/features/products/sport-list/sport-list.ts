@@ -1,21 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SportCard } from "../../../shared/components/sport-card/sport-card";
 import { SPORT_ACTIVITIES } from '../../../shared/mock-data';
 import { FormsModule } from '@angular/forms';
-import { DifficultyLevel } from '../../../shared/models/sportInfo';
+import { DifficultyLevel, SportActivity } from '../../../shared/models/sportInfo';
+import { SportService } from '../../../sport-service';
 
 @Component({
   selector: 'sport-sport-list',
   imports: [SportCard, FormsModule],
   templateUrl: './sport-list.html',
   styleUrl: './sport-list.css',
-})
+}) 
 export class SportList {
-  public allProducts = SPORT_ACTIVITIES;
+  public sportService = inject(SportService);
+  public allProducts:SportActivity[] = [];
   public filteredProducts = this.allProducts;
   public searchQuery:string = '';
-  public levels:string[] | null = this.getLevel();
+  public levels:string[] = this.getLevel();
   public selectedCategory: string = '';
+
+  ngOnInit() {
+    this.allProducts = this.sportService.getAll();
+    this.filteredProducts = [...this.allProducts];
+  }
 
   getLevel () {
     return ['All', ...Object.values(DifficultyLevel)];
