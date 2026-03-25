@@ -14,4 +14,9 @@ export class SportService {
   getById (id: number) {
     return this.items.find(item => item.id === id) || null;
   }
+
+  deleteItem(id: number) {
+    this.items = this.items.filter(item => item.id !== id)
+    return this.getAll();
+  }
 }
