@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SPORT_ACTIVITIES } from './shared/mock-data';
-import { delay, Observable, of } from 'rxjs';
+import { BehaviorSubject, delay, Observable, of } from 'rxjs';
 import { SportActivity } from './shared/models/sportInfo';
 
 @Injectable({
@@ -8,11 +8,11 @@ import { SportActivity } from './shared/models/sportInfo';
 })
 export class SportService {
   private items = SPORT_ACTIVITIES;
+  private itemsSubject$ = new BehaviorSubject<SportActivity[]>(this.items);
+  public items$ = this.itemsSubject$.asObservable();
   
   getAll():Observable<SportActivity[]> {
-    return of(this.items).pipe(
-      delay(1000)
-    );
+    return this.items$;
   }
 
   getById (id: number) {
@@ -20,8 +20,8 @@ export class SportService {
   }
 
   deleteItem(id: number) {
-    this.items = this.items.filter(item => item.id !== id)
-    return this.getAll();
+    this.items = this.items.filter(item => item.id !== id);
+    this.itemsSubject$.next(this.items);
   }
 
   filterItems(str: string, category: string) {
