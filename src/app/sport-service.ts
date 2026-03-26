@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SPORT_ACTIVITIES } from './shared/mock-data';
+import { delay, Observable, of } from 'rxjs';
+import { SportActivity } from './shared/models/sportInfo';
 
 @Injectable({
   providedIn: 'root',
@@ -7,8 +9,10 @@ import { SPORT_ACTIVITIES } from './shared/mock-data';
 export class SportService {
   private items = SPORT_ACTIVITIES;
   
-  getAll() {
-    return [...this.items];
+  getAll():Observable<SportActivity[]> {
+    return of(this.items).pipe(
+      delay(1000)
+    );
   }
 
   getById (id: number) {

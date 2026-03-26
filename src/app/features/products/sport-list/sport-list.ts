@@ -20,8 +20,10 @@ export class SportList {
   public selectedCategory: string = 'All';
 
   ngOnInit() {
-    this.allProducts = this.sportService.getAll();
-    this.filteredProducts = [...this.sportService.getAll()];
+    this.sportService.getAll().subscribe(data => {
+      this.allProducts = data;
+      this.filteredProducts = [...data];
+    });
   }
 
   getLevel () {
@@ -30,7 +32,9 @@ export class SportList {
 
   handleCardAction(id: number) {
     this.sportService.deleteItem(id);
-    this.filteredProducts = [...this.sportService.getAll()]
+     this.sportService.getAll().subscribe(data => {
+      this.filteredProducts = [...data];
+    });
   }
 
   filterItems() {
