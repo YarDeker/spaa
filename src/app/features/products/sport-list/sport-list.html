@@ -1,30 +1,39 @@
 <div class="sports-container">
   <p style="text-align: center; font-weight: bold; margin-top: 1em; font-size: 1.2em;">{{searchQuery}}</p>
   <div class="search-block">
-    <input type="text" #searchInput [(ngModel)]="searchQuery"  placeholder="Search...">
+    <input 
+      type="text"
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="onFilterChange()"
+      placeholder="Search..."
+    >
+
     <div>
-      <select [(ngModel)]="selectedCategory" name="" id="">
+      <select 
+        [(ngModel)]="selectedCategory"
+        (change)="onFilterChange()"
+      >
         @for(level of levels; track level) {
           <option [value]="level">{{level}}</option>
         }
       </select>
     </div>
     <div>
-      <button (click)="resetFilters(searchInput)">CLEAR</button>
+      <button (click)="resetFilters()">CLEAR</button>
     </div>
   </div>
-  <div class="sport-list" *ngIf="products$ | async as products; else loading">
 
-  @for(item of filterItems(products); track item.id) {
-    <sport-sport-card 
-      [activity]="item"
-      (action)="handleCardAction(item.id)">
-    </sport-sport-card>
-  }
+  <div class="sport-list" *ngIf="products$ | async as products; else loading">
+    @for(item of products; track item.id) {
+      <sport-sport-card 
+        [activity]="item"
+        (action)="handleCardAction(item.id)">
+      </sport-sport-card>
+    }
+  </div>
 
   </div>
   
-</div>
 
 <ng-template #loading>
     <p>Loading...</p>

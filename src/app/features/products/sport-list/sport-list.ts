@@ -5,6 +5,7 @@ import { DifficultyLevel, SportActivity } from '../../../shared/models/sportInfo
 import { SportService } from '../../../sport-service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { FilterOptions } from '../../../filter-options';
 
 @Component({
   selector: 'sport-sport-list',
@@ -34,16 +35,18 @@ export class SportList {
     this.sportService.deleteItem(id);
   }
 
-  filterItems(items: SportActivity[]) {
-    return items.filter(val =>
-      val.title.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
-      (this.selectedCategory === 'All' || val.difficulty === this.selectedCategory)
-    );
+  onFilterChange() {
+    const options: FilterOptions = {
+      query: this.searchQuery,
+      category: this.selectedCategory
+    };
+
+    this.sportService.filterItems(options);
   }
 
-  resetFilters(searchInput: HTMLInputElement) {
-    this.selectedCategory = 'All';
+  resetFilters() {
     this.searchQuery = '';
-    searchInput.focus();
+    this.selectedCategory = 'All';
+    this.onFilterChange();
   }
 }
