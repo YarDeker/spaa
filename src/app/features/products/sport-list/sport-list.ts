@@ -1,51 +1,49 @@
 import { Component, inject } from '@angular/core';
 import { SportCard } from "../../../shared/components/sport-card/sport-card";
-import { SPORT_ACTIVITIES } from '../../../shared/mock-data';
 import { FormsModule } from '@angular/forms';
 import { DifficultyLevel, SportActivity } from '../../../shared/models/sportInfo';
 import { SportService } from '../../../sport-service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sport-sport-list',
-  imports: [SportCard, FormsModule],
+  imports: [SportCard, FormsModule, CommonModule],
   templateUrl: './sport-list.html',
   styleUrl: './sport-list.css',
 }) 
 export class SportList {
+
   public sportService = inject(SportService);
-  public allProducts:SportActivity[] = [];
-  public filteredProducts = this.allProducts;
-  public searchQuery:string = '';
-  public levels:string[] = this.getLevel();
+
+  public searchQuery: string = '';
   public selectedCategory: string = 'All';
+  public levels: string[] = this.getLevel();
+
+  products$!: Observable<SportActivity[]>;
 
   ngOnInit() {
-    this.sportService.getAll().subscribe(data => {
-      this.allProducts = data;
-      this.filteredProducts = [...data];
-    });
+    this.products$ = this.sportService.getAll();
   }
 
-  getLevel () {
+  getLevel() {
     return ['All', ...Object.values(DifficultyLevel)];
   }
 
   handleCardAction(id: number) {
     this.sportService.deleteItem(id);
-     this.sportService.getAll().subscribe(data => {
-      this.filteredProducts = [...data];
-    });
   }
 
-  filterItems() {
-    this.filteredProducts = this.sportService.filterItems(this.searchQuery, this.selectedCategory)
+  filterItems(items: SportActivity[]) {
+    return items.filter(val =>
+      val.title.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+      (this.selectedCategory === 'All' || val.difficulty === this.selectedCategory)
+    );
   }
 
-  resetFilters(searchInput:any) {
+  resetFilters(searchInput: HTMLInputElement) {
     this.selectedCategory = 'All';
     this.searchQuery = '';
-    this.filterItems();
-
     searchInput.focus();
   }
 }

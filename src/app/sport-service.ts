@@ -24,10 +24,5 @@ export class SportService {
     this.itemsSubject$.next(this.items);
   }
 
-  filterItems(str: string, category: string) {
-    return this.items.filter(val => 
-      val.title.toLowerCase().includes(str.toLowerCase()) &&
-      (category === 'All' || val.difficulty === category)
-    )
-  }
+  
 }
