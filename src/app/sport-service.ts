@@ -47,8 +47,11 @@ export class SportService {
     return this.items$;
   }
 
-  getById (id: number) {
-    return this.items.find(item => item.id === id) || null;
+  getById (id: number | string): Observable<SportActivity | undefined> {
+    const item = this.items.find(item => item.id === +id);
+
+
+    return of(item).pipe(delay(1000));
   }
 
   deleteItem(id: number) {
