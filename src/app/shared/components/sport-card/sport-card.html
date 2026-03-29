@@ -62,8 +62,8 @@
 
   @if (isOngoing) {
 
-    <button (click)="onBtnClick()" class="buy-btn">
-      ORDER
+    <button [routerLink]="['/products/' + activity.id]" class="buy-btn">
+      MORE
     </button>
 
   } @else {
