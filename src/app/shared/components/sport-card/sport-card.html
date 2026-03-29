@@ -16,33 +16,11 @@
   <p>
     <strong>Difficulty: </strong>
 
-      @switch (activity.difficulty) {
 
-      @case ('Beginner') {
-        <span class="badge green">
-          Begginer
+        <span [class]="'badge ' + (activity.difficulty | statusColor)">
+          {{activity.difficulty}}
         </span>
-      }
 
-      @case ('Intermediate') {
-        <span class="badge red">
-          Intermediate
-        </span>
-      }
-
-      @case ('Advanced') {
-        <span class="badge yellow">
-          Advanced
-        </span>
-      }
-
-      @default {
-        <span class="badge gray">
-          Unknown
-        </span>
-      }
-
-    }
   </p>
 
   <p>

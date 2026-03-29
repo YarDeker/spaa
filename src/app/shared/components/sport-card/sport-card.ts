@@ -3,10 +3,11 @@ import { SportActivity } from '../../models/sportInfo';
 import { CurrencyPipe, DatePipe, NgStyle } from '@angular/common';
 import { RouterLink } from "@angular/router";
 import { TruncatePipe } from '../../pipes/truncate-pipe';
+import { StatusColorPipe } from '../../pipes/status-color-pipe';
 
 @Component({
   selector: 'sport-sport-card',
-  imports: [CurrencyPipe, DatePipe, NgStyle, RouterLink, TruncatePipe],
+  imports: [CurrencyPipe, DatePipe, NgStyle, RouterLink, TruncatePipe, StatusColorPipe],
   templateUrl: './sport-card.html',
   styleUrl: './sport-card.css',
 })
