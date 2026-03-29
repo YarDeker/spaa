@@ -2,8 +2,8 @@ import { Component, inject, Input } from '@angular/core';
 import { SportActivity } from '../../shared/models/sportInfo';
 import { Observable } from 'rxjs';
 import { SportService } from '../../sport-service';
-import { CommonModule, NgForOf } from "../../../../node_modules/@angular/common/types/_common_module-chunk";
 import { SportCard } from "../../shared/components/sport-card/sport-card";
+import { CommonModule, NgForOf } from '@angular/common';
 
 @Component({
   selector: 'sport-product-details',

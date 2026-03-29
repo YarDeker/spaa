@@ -31,6 +31,8 @@ export class SportList {
   }
 
   handleCardAction(id: number) {
+    console.log(id)
+
     this.sportService.deleteItem(id);
   }
 

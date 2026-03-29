@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SportActivity } from '../../models/sportInfo';
 import { CurrencyPipe, DatePipe, NgStyle } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'sport-sport-card',
-  imports: [CurrencyPipe, DatePipe, NgStyle],
+  imports: [CurrencyPipe, DatePipe, NgStyle, RouterLink],
   templateUrl: './sport-card.html',
   styleUrl: './sport-card.css',
 })
