@@ -1,0 +1,108 @@
+<button onclick="history.back()">← Back</button>
+
+<div *ngIf="product$ | async as activity; else loading">
+
+  @if (activity) {
+    <div class="details-container">
+      <img 
+        [src]="activity.imageUrl" 
+        [alt]="activity.title"
+        style="width: 100%; max-height: 400px; object-fit: cover;"
+      >
+
+      <h1>{{ activity.title }}</h1>
+      <p>{{ activity.description }}</p>
+      <p>
+        <strong>Price:</strong>
+        {{ activity.price | currency:'USD' }}
+      </p>
+      <p>
+        <strong>Rating:</strong>
+        {{ activity.rating }}
+      </p>
+      <p>
+        <strong>Start date:</strong>
+        {{ activity.startDate | date:'dd.MM.yyyy' }}
+      </p>
+
+      <p>
+        <strong>Created:</strong>
+        {{ activity.createdAt | date:'dd.MM.yyyy' }}
+      </p>
+
+      <p>
+        <strong>Type:</strong>
+        {{ activity.type }}
+      </p>
+
+      <p>
+        <strong>Difficulty:</strong>
+
+        @switch (activity.difficulty) {
+
+          @case ('Beginner') {
+            <span class="badge green">Beginner</span>
+          }
+
+          @case ('Intermediate') {
+            <span class="badge red">Intermediate</span>
+          }
+
+          @case ('Advanced') {
+            <span class="badge yellow">Advanced</span>
+          }
+
+          @default {
+            <span class="badge gray">Unknown</span>
+          }
+
+        }
+      </p>
+
+      @if (activity.tags?.length) {
+        <div class="tags">
+          <strong>Tags:</strong>
+          @for (tag of activity.tags; track $index) {
+            <span>{{ tag }}</span>
+          }
+        </div>
+      }
+
+      <div>
+        <strong>Available days:</strong>
+        @for (day of activity.availableDays; track $index) {
+          <span>{{ day }}</span>
+        }
+      </div>
+
+      <div>
+        <strong>Location:</strong>
+        <p>Name: {{ activity.location.name }}</p>
+        <p>City: {{ activity.location.city }}</p>
+        <p>Indoor: {{ activity.location.indoor ? 'Yes' : 'No' }}</p>
+      </div>
+
+      <div>
+        <strong>Coach:</strong>
+        <p>Name: {{ activity.coach.fullName }}</p>
+        <p>Experience: {{ activity.coach.experienceYears }} years</p>
+        <p>Certified: {{ activity.coach.certified ? 'Yes' : 'No' }}</p>
+      </div>
+
+      @if (activity.is_discount) {
+        <div class="discount-badge">
+          DISCOUNT AVAILABLE
+        </div>
+      }
+
+    </div>
+
+  } @else {
+    <p>Not found</p>
+  }
+
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

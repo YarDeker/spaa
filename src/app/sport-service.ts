@@ -49,8 +49,6 @@ export class SportService {
 
   getById (id: number | string): Observable<SportActivity | undefined> {
     const item = this.items.find(item => item.id === +id);
-
-
     return of(item).pipe(delay(1000));
   }
 

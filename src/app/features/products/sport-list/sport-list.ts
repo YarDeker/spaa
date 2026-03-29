@@ -14,7 +14,6 @@ import { FilterOptions } from '../../../filter-options';
   styleUrl: './sport-list.css',
 }) 
 export class SportList {
-
   public sportService = inject(SportService);
 
   public searchQuery: string = '';
