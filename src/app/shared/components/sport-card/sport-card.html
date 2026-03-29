@@ -1,4 +1,7 @@
-<div class="sport-card" [style.box-shadow]="activity.is_discount ? '0 0 5px blue' : 'none'">
+<div 
+  class="sport-card"
+  [appHighlightColor]="'green'"
+>
   @if(activity.is_discount) {
     <div class="dicount-block">
       DISCOUNT

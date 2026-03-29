@@ -9,7 +9,7 @@ import { FilterOptions } from '../../../filter-options';
 
 @Component({
   selector: 'sport-sport-list',
-  imports: [SportCard, FormsModule, CommonModule],
+  imports: [SportCard, FormsModule, CommonModule,],
   templateUrl: './sport-list.html',
   styleUrl: './sport-list.css',
 }) 
