@@ -52,6 +52,13 @@ export class SportService {
     return of(item).pipe(delay(1000));
   }
 
+  addItem(newItem: SportActivity) {
+    const items = this.itemsSubject$.value;
+    const updated_items = [...items, newItem]
+    this.items = updated_items
+    this.itemsSubject$.next(updated_items)
+  }
+
   deleteItem(id: number) {
     this.items = this.items.filter(item => item.id !== id);
     this.filterSubject$.next(this.filterSubject$.value);

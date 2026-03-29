@@ -6,10 +6,11 @@ import { SportService } from '../../../sport-service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FilterOptions } from '../../../filter-options';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'sport-sport-list',
-  imports: [SportCard, FormsModule, CommonModule,],
+  imports: [SportCard, FormsModule, CommonModule, RouterLink],
   templateUrl: './sport-list.html',
   styleUrl: './sport-list.css',
 }) 

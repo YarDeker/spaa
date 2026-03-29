@@ -22,6 +22,10 @@
       <button (click)="resetFilters()">CLEAR</button>
     </div>
   </div>
+  <div style="display: grid; place-items: center;">
+    <button class="add-item-btn" routerLink="/products/new">ADD NEW</button>
+  </div>
+
 
   <div class="sport-list" *ngIf="products$ | async as products; else loading">
     @for(item of products; track item.id) {

@@ -17,3 +17,12 @@
     font-size: 1.1em;
     padding: 5px 15px; 
 }
+
+.add-item-btn {
+    color: white;
+    background-color: rgb(0, 128, 255);
+    padding: .2em 1.5em;
+    font-size: 1.1em;
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px #000;
+}
