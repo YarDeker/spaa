@@ -3,6 +3,8 @@ import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } fr
 import { DifficultyLevel, SportType } from '../../shared/models/sportInfo';
 import { forbiddenNameValidator } from '../../shared/validators/custom.validators';
 import { CommonModule } from '@angular/common';
+import { SportService } from '../../sport-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sport-product-form',
@@ -11,6 +13,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-form.css',
 })
 export class ProductForm {
+  private productsService = inject(SportService);
+  private router = inject(Router);
+
   private fb = inject(FormBuilder);
 
   sportTypes = Object.values(SportType);
@@ -70,6 +75,18 @@ export class ProductForm {
       return;
     }
 
-    console.log(this.form.value);
+    const formValue = this.form.getRawValue();
+
+    const newItem = {
+      ...formValue,
+
+      id: Date.now(),
+
+      createdAt: new Date(),
+      startDate: new Date(formValue.startDate),
+    };
+
+    this.productsService.addItem(newItem);
+    this.router.navigate(['/products']);
   }
 }
