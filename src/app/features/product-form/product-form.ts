@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DifficultyLevel, SportType } from '../../shared/models/sportInfo';
 import { forbiddenNameValidator } from '../../shared/validators/custom.validators';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sport-product-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './product-form.html',
   styleUrl: './product-form.css',
 })

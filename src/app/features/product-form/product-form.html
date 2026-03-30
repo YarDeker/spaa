@@ -1,1 +1,90 @@
-<p>product-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <input type="text" formControlName="title" placeholder="Назва" />
+
+  <div *ngIf="form.get('title')?.touched && form.get('title')?.errors">
+    <small *ngIf="form.get('title')?.errors?.['required']">Required field</small>
+    <small *ngIf="form.get('title')?.errors?.['minlength']">Minimum 3 symbols</small>
+    <small *ngIf="form.get('title')?.errors?.['forbiddenName']">
+      Forbidden word!
+    </small>
+  </div>
+
+  <textarea formControlName="description" placeholder="Опис"></textarea>
+
+  <input type="text" formControlName="imageUrl" placeholder="Image URL" />
+  <label for="rating">
+    Rating
+      <input type="number" formControlName="rating" placeholder="Rating" />
+  </label>
+  <label for="price">
+    Price
+      <input type="number" formControlName="price" placeholder="Price" />
+  </label>
+
+  <label>
+    <input type="checkbox" formControlName="is_discount" />
+    Discount
+  </label>
+
+  <input type="date" formControlName="startDate" />
+
+  <select formControlName="type">
+    <option value="">Select type</option>
+    <option *ngFor="let t of sportTypes" [value]="t">
+      {{ t }}
+    </option>
+  </select>
+
+  <select formControlName="difficulty">
+    <option value="">Select difficulty</option>
+    <option *ngFor="let d of difficultyLevels" [value]="d">
+      {{ d }}
+    </option>
+  </select>
+
+  <div formGroupName="location">
+    <input type="text" formControlName="name" placeholder="Location name" />
+    <input type="text" formControlName="city" placeholder="City" />
+
+    <label>
+      <input type="checkbox" formControlName="indoor" />
+      Indoor
+    </label>
+  </div>
+
+  <div formGroupName="coach">
+    <input type="text" formControlName="fullName" placeholder="Coach name" />
+    <input type="number" formControlName="experienceYears" placeholder="Experience years" />
+
+    <label>
+      <input type="checkbox" formControlName="certified" />
+      Certified
+    </label>
+  </div>
+
+  <div>
+    <input #tagInput type="text" placeholder="New tag" />
+    <button type="button" (click)="addTag(tagInput.value); tagInput.value=''">
+      Add tag
+    </button>
+
+    <div *ngFor="let tag of tags.controls">
+      {{ tag.value }}
+    </div>
+  </div>
+
+  <div>
+    <input #dayInput type="text" placeholder="Add day" />
+    <button type="button" (click)="addDay(dayInput.value); dayInput.value=''">
+      Add day
+    </button>
+
+    <div *ngFor="let day of availableDays.controls">
+      {{ day.value }}
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+
+</form>
