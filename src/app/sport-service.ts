@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
-import { SPORT_ACTIVITIES } from './shared/mock-data';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, debounceTime, delay, distinctUntilChanged, map, Observable, of } from 'rxjs';
 import { SportActivity } from './shared/models/sportInfo';
 import { FilterOptions } from './filter-options';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SportService {
-  private items = SPORT_ACTIVITIES;
+  private http = inject(HttpClient)
+  private items:SportActivity[] = [];
   private itemsSubject$ = new BehaviorSubject<SportActivity[]>(this.items);
   public items$ = this.itemsSubject$.asObservable();
 
@@ -18,6 +19,7 @@ export class SportService {
   });
 
   constructor() {
+    this.loadInitialData()
     this.filterSubject$
       .pipe(
         debounceTime(500),
@@ -41,6 +43,14 @@ export class SportService {
       .subscribe(filteredResult => {
         this.itemsSubject$.next(filteredResult);
       });
+  }
+
+  loadInitialData() {
+    this.http.get<SportActivity[]>('items')
+    .subscribe(data => {
+      this.items = data
+      this.itemsSubject$.next(data)
+    })
   }
   
   getAll():Observable<SportActivity[]> {

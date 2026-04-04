@@ -56,11 +56,11 @@
   }
 
   <div class="tags">
-    @for (tag of activity?.tags; track $index) {
-        <span>
-          {{ tag }}
-        </span>
-    }
+      @for (tag of activity?.tags; track $index) {
+          <span>
+            {{ tag }}
+          </span>
+      }  
   </div>
 
   <div class="desc">

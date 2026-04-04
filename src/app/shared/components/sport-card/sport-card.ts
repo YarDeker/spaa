@@ -11,7 +11,6 @@ import { Highlight } from '../../directives/highlight';
   imports: [
     CurrencyPipe, 
     DatePipe, 
-    NgStyle, 
     RouterLink, 
     TruncatePipe, 
     StatusColorPipe, 
