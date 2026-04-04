@@ -42,17 +42,13 @@
   </p>
 
   @if (isOngoing) {
-
     <button [routerLink]="['/products/' + activity.id]" class="buy-btn">
       MORE
     </button>
-
   } @else {
-
     <button class="disabled-btn" disabled>
       Coming soon
     </button>
-
   }
 
   <div class="tags">
@@ -62,6 +58,8 @@
           </span>
       }  
   </div>
+
+  <button (click)="deleteItem(activity.id)">REMOVE</button>
 
   <div class="desc">
     {{activity.description | truncate}}

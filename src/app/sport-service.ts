@@ -1,14 +1,16 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, debounceTime, delay, distinctUntilChanged, map, Observable, of } from 'rxjs';
+import { BehaviorSubject, debounceTime, delay, distinctUntilChanged, map, Observable, of, tap } from 'rxjs';
 import { SportActivity } from './shared/models/sportInfo';
 import { FilterOptions } from './filter-options';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SportService {
   private http = inject(HttpClient)
+  private toastr = inject(ToastrService);
   private items:SportActivity[] = [];
   private itemsSubject$ = new BehaviorSubject<SportActivity[]>(this.items);
   public items$ = this.itemsSubject$.asObservable();
@@ -63,15 +65,19 @@ export class SportService {
   }
 
   addItem(newItem: SportActivity) {
-    const items = this.itemsSubject$.value;
-    const updated_items = [...items, newItem]
-    this.items = updated_items
-    this.itemsSubject$.next(updated_items)
+    this.http.post("items", newItem).pipe(        
+      tap(() => {
+          this.loadInitialData()
+          this.toastr.success('Елемент успішно додано!', 'Успіх');
+        }
+      )).subscribe()
   }
 
   deleteItem(id: number) {
-    this.items = this.items.filter(item => item.id !== id);
-    this.filterSubject$.next(this.filterSubject$.value);
+    this.http.delete("items/" + id).pipe(tap(() => {
+      this.loadInitialData()
+      this.toastr.info('Елемент видалено', 'Інфо');
+    })).subscribe()
   }
 
   filterItems(options: FilterOptions) {

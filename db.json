@@ -1,159 +1,162 @@
 {
-    "items" : [
+  "items": [
     {
-        "id": 1,
-        "title": "Evening Street Football Session",
-        "description": "Dynamic football sessions focused on quick decisions and real game scenarios.",
-        "imageUrl": "assets/images/football.jpg",
-
-        "rating": 4.6,
-        "price": 28,
-        "is_discount": true,
-
-        "createdAt": "2025-02-05",
-        "startDate": "2025-04-10",
-
-        "type": "Team",
-        "difficulty": "Intermediate",
-
-        "tags": ["teamplay", "speed", "outdoor"],
-        "availableDays": ["Tuesday", "Thursday", "Saturday"],
-
-        "location": {
+      "id": "1",
+      "title": "Evening Street Football Session",
+      "description": "Dynamic football sessions focused on quick decisions and real game scenarios.",
+      "imageUrl": "assets/images/football.jpg",
+      "rating": 4.6,
+      "price": 28,
+      "is_discount": true,
+      "createdAt": "2025-02-05",
+      "startDate": "2025-04-10",
+      "type": "Team",
+      "difficulty": "Intermediate",
+      "tags": [
+        "teamplay",
+        "speed",
+        "outdoor"
+      ],
+      "availableDays": [
+        "Tuesday",
+        "Thursday",
+        "Saturday"
+      ],
+      "location": {
         "name": "Urban Arena",
         "city": "Kyiv",
         "indoor": false
-        },
-
-        "coach": {
+      },
+      "coach": {
         "fullName": "Dmytro Hrytsenko",
         "experienceYears": 9,
         "certified": true
-        }
+      }
     },
     {
-        "id": 2,
-        "title": "Mindful Yoga Flow",
-        "description": "Gentle yoga practice focused on breathing and relaxation.",
-        "imageUrl": "assets/images/yoga.jpg",
-
-        "rating": 4.9,
-        "price": 18,
-        "is_discount": false,
-
-        "createdAt": "2025-01-20",
-        "startDate": "2025-03-18",
-
-        "type": "Individual",
-        "difficulty": "Beginner",
-
-        "tags": ["mindfulness", "stretching", "indoor"],
-        "availableDays": ["Monday", "Wednesday"],
-
-        "location": {
-        "name": "Zen Studio",
-        "city": "Lviv",
-        "indoor": true
-        },
-
-        "coach": {
-        "fullName": "Natalia Bohdan",
-        "experienceYears": 6,
-        "certified": true
-        }
-    },
-    {
-        "id": 3,
-        "title": "Forest Trail Cycling",
-        "description": "Outdoor cycling experience through scenic forest trails.",
-        "imageUrl": "assets/images/cycling.jpg",
-
-        "rating": 4.4,
-        "price": 38,
-        "is_discount": false,
-
-        "createdAt": "2025-01-05",
-        "startDate": "2026-05-15",
-
-        "type": "Extreme",
-        "difficulty": "Advanced",
-
-        "tags": ["adventure", "nature", "endurance"],
-        "availableDays": ["Sunday"],
-
-        "location": {
+      "id": "3",
+      "title": "Forest Trail Cycling",
+      "description": "Outdoor cycling experience through scenic forest trails.",
+      "imageUrl": "assets/images/cycling.jpg",
+      "rating": 4.4,
+      "price": 38,
+      "is_discount": false,
+      "createdAt": "2025-01-05",
+      "startDate": "2026-05-15",
+      "type": "Extreme",
+      "difficulty": "Advanced",
+      "tags": [
+        "adventure",
+        "nature",
+        "endurance"
+      ],
+      "availableDays": [
+        "Sunday"
+      ],
+      "location": {
         "name": "Green Hills Route",
         "city": "Yaremche",
         "indoor": false
-        },
-
-        "coach": {
+      },
+      "coach": {
         "fullName": "Oleh Martynenko",
         "experienceYears": 11,
         "certified": true
-        }
+      }
     },
     {
-        "id": 4,
-        "title": "Kids Aqua Basics",
-        "description": "Swimming sessions designed for children to build confidence in water.",
-        "imageUrl": "assets/images/swimming.jpg",
-
-        "rating": 4.8,
-        "price": 22,
-        "is_discount": true,
-
-        "createdAt": "2025-02-01",
-        "startDate": "2025-03-12",
-
-        "type": "Water",
-        "difficulty": "Beginner",
-
-        "tags": ["kids", "water", "learning"],
-        "availableDays": ["Wednesday", "Saturday"],
-
-        "location": {
+      "id": "4",
+      "title": "Kids Aqua Basics",
+      "description": "Swimming sessions designed for children to build confidence in water.",
+      "imageUrl": "assets/images/swimming.jpg",
+      "rating": 4.8,
+      "price": 22,
+      "is_discount": true,
+      "createdAt": "2025-02-01",
+      "startDate": "2025-03-12",
+      "type": "Water",
+      "difficulty": "Beginner",
+      "tags": [
+        "kids",
+        "water",
+        "learning"
+      ],
+      "availableDays": [
+        "Wednesday",
+        "Saturday"
+      ],
+      "location": {
         "name": "Blue Wave Pool",
         "city": "Odessa",
         "indoor": true
-        },
-
-        "coach": {
+      },
+      "coach": {
         "fullName": "Svitlana Danylchuk",
         "experienceYears": 7,
         "certified": true
-        }
+      }
     },
     {
-        "id": 5,
-        "title": "Alpine Ski Experience",
-        "description": "Structured ski sessions focused on technique and control.",
-        "imageUrl": "assets/images/ski.jpg",
-
-        "rating": 4.5,
-        "price": 110,
-        "is_discount": false,
-
-        "createdAt": "2024-12-10",
-        "startDate": "2026-12-20",
-
-        "type": "Winter",
-        "difficulty": "Advanced",
-
-        "tags": ["snow", "ski", "mountain"],
-        "availableDays": ["Friday", "Saturday"],
-
-        "location": {
+      "id": "5",
+      "title": "Alpine Ski Experience",
+      "description": "Structured ski sessions focused on technique and control.",
+      "imageUrl": "assets/images/ski.jpg",
+      "rating": 4.5,
+      "price": 110,
+      "is_discount": false,
+      "createdAt": "2024-12-10",
+      "startDate": "2026-12-20",
+      "type": "Winter",
+      "difficulty": "Advanced",
+      "tags": [
+        "snow",
+        "ski",
+        "mountain"
+      ],
+      "availableDays": [
+        "Friday",
+        "Saturday"
+      ],
+      "location": {
         "name": "Bukovel Slopes",
         "city": "Bukovel",
         "indoor": false
-        },
-
-        "coach": {
+      },
+      "coach": {
         "fullName": "Andrii Kovalenko",
         "experienceYears": 13,
         "certified": true
-        }
+      }
+    },
+    {
+      "title": "Sunset Beach Volleyball Session",
+      "description": "Outdoor beach volleyball training focused on teamwork, agility and game tactics in a relaxed coastal atmosphere",
+      "imageUrl": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=3107&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": 4.6,
+      "price": 35,
+      "is_discount": false,
+      "createdAt": "2026-04-04T15:19:57.890Z",
+      "startDate": "2026-07-17T00:00:00.000Z",
+      "type": "Team",
+      "difficulty": "Intermediate",
+      "tags": [
+        "volleyball",
+        "beach",
+        "sport"
+      ],
+      "availableDays": [],
+      "location": {
+        "name": "Sunny Coast Beach Arena",
+        "city": "Odesa",
+        "indoor": false
+      },
+      "coach": {
+        "fullName": "Maksym Bondarenko",
+        "experienceYears": 7,
+        "certified": true
+      },
+      "id": "7SqogvEea6g"
     }
-    ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

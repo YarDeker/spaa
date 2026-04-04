@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { SportActivity } from '../../models/sportInfo';
 import { CurrencyPipe, DatePipe, NgStyle } from '@angular/common';
 import { RouterLink } from "@angular/router";
 import { TruncatePipe } from '../../pipes/truncate-pipe';
 import { StatusColorPipe } from '../../pipes/status-color-pipe';
 import { Highlight } from '../../directives/highlight';
+import { SportService } from '../../../sport-service';
 
 @Component({
   selector: 'sport-sport-card',
@@ -22,13 +23,17 @@ import { Highlight } from '../../directives/highlight';
 export class SportCard {
   @Input ({required: true}) activity!: SportActivity;
   @Output() cardAction = new EventEmitter<number>();
+  private sportService = inject(SportService);
 
   onBtnClick() {
     this.cardAction.emit(this.activity.id);
   }
 
   get isOngoing(): boolean {
-    return this.activity.startDate <= new Date();
+    return new Date(this.activity.startDate) <= new Date();
   }
 
+  deleteItem(id:number) {
+    return this.sportService.deleteItem(id);
+  }
 }
