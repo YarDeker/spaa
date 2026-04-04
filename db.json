@@ -1,0 +1,159 @@
+{
+    "items" : [
+    {
+        "id": 1,
+        "title": "Evening Street Football Session",
+        "description": "Dynamic football sessions focused on quick decisions and real game scenarios.",
+        "imageUrl": "assets/images/football.jpg",
+
+        "rating": 4.6,
+        "price": 28,
+        "is_discount": true,
+
+        "createdAt": "2025-02-05",
+        "startDate": "2025-04-10",
+
+        "type": "Team",
+        "difficulty": "Intermediate",
+
+        "tags": ["teamplay", "speed", "outdoor"],
+        "availableDays": ["Tuesday", "Thursday", "Saturday"],
+
+        "location": {
+        "name": "Urban Arena",
+        "city": "Kyiv",
+        "indoor": false
+        },
+
+        "coach": {
+        "fullName": "Dmytro Hrytsenko",
+        "experienceYears": 9,
+        "certified": true
+        }
+    },
+    {
+        "id": 2,
+        "title": "Mindful Yoga Flow",
+        "description": "Gentle yoga practice focused on breathing and relaxation.",
+        "imageUrl": "assets/images/yoga.jpg",
+
+        "rating": 4.9,
+        "price": 18,
+        "is_discount": false,
+
+        "createdAt": "2025-01-20",
+        "startDate": "2025-03-18",
+
+        "type": "Individual",
+        "difficulty": "Beginner",
+
+        "tags": ["mindfulness", "stretching", "indoor"],
+        "availableDays": ["Monday", "Wednesday"],
+
+        "location": {
+        "name": "Zen Studio",
+        "city": "Lviv",
+        "indoor": true
+        },
+
+        "coach": {
+        "fullName": "Natalia Bohdan",
+        "experienceYears": 6,
+        "certified": true
+        }
+    },
+    {
+        "id": 3,
+        "title": "Forest Trail Cycling",
+        "description": "Outdoor cycling experience through scenic forest trails.",
+        "imageUrl": "assets/images/cycling.jpg",
+
+        "rating": 4.4,
+        "price": 38,
+        "is_discount": false,
+
+        "createdAt": "2025-01-05",
+        "startDate": "2026-05-15",
+
+        "type": "Extreme",
+        "difficulty": "Advanced",
+
+        "tags": ["adventure", "nature", "endurance"],
+        "availableDays": ["Sunday"],
+
+        "location": {
+        "name": "Green Hills Route",
+        "city": "Yaremche",
+        "indoor": false
+        },
+
+        "coach": {
+        "fullName": "Oleh Martynenko",
+        "experienceYears": 11,
+        "certified": true
+        }
+    },
+    {
+        "id": 4,
+        "title": "Kids Aqua Basics",
+        "description": "Swimming sessions designed for children to build confidence in water.",
+        "imageUrl": "assets/images/swimming.jpg",
+
+        "rating": 4.8,
+        "price": 22,
+        "is_discount": true,
+
+        "createdAt": "2025-02-01",
+        "startDate": "2025-03-12",
+
+        "type": "Water",
+        "difficulty": "Beginner",
+
+        "tags": ["kids", "water", "learning"],
+        "availableDays": ["Wednesday", "Saturday"],
+
+        "location": {
+        "name": "Blue Wave Pool",
+        "city": "Odessa",
+        "indoor": true
+        },
+
+        "coach": {
+        "fullName": "Svitlana Danylchuk",
+        "experienceYears": 7,
+        "certified": true
+        }
+    },
+    {
+        "id": 5,
+        "title": "Alpine Ski Experience",
+        "description": "Structured ski sessions focused on technique and control.",
+        "imageUrl": "assets/images/ski.jpg",
+
+        "rating": 4.5,
+        "price": 110,
+        "is_discount": false,
+
+        "createdAt": "2024-12-10",
+        "startDate": "2026-12-20",
+
+        "type": "Winter",
+        "difficulty": "Advanced",
+
+        "tags": ["snow", "ski", "mountain"],
+        "availableDays": ["Friday", "Saturday"],
+
+        "location": {
+        "name": "Bukovel Slopes",
+        "city": "Bukovel",
+        "indoor": false
+        },
+
+        "coach": {
+        "fullName": "Andrii Kovalenko",
+        "experienceYears": 13,
+        "certified": true
+        }
+    }
+    ]
+}
