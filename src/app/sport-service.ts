@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, debounceTime, delay, distinctUntilChanged, map, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, catchError, debounceTime, delay, distinctUntilChanged, map, Observable, of, tap, throwError } from 'rxjs';
 import { SportActivity } from './shared/models/sportInfo';
 import { FilterOptions } from './filter-options';
 import { HttpClient } from '@angular/common/http';
@@ -49,6 +49,12 @@ export class SportService {
 
   loadInitialData() {
     this.http.get<SportActivity[]>('items')
+    .pipe(
+      catchError((error) => {
+        this.toastr.error('Не вдалося з\'єднатися з сервером', 'Помилка мережі');
+        return throwError(() => error);
+      })
+    )
     .subscribe(data => {
       this.items = data
       this.itemsSubject$.next(data)
@@ -67,17 +73,29 @@ export class SportService {
   addItem(newItem: SportActivity) {
     this.http.post("items", newItem).pipe(        
       tap(() => {
-          this.loadInitialData()
-          this.toastr.success('Елемент успішно додано!', 'Успіх');
-        }
-      )).subscribe()
+        this.loadInitialData()
+        this.toastr.success('Елемент успішно додано!', 'Успіх');
+      }),
+      catchError((error) => {
+        this.toastr.error('Не вдалося з\'єднатися з сервером', 'Помилка мережі');
+        return throwError(() => error);
+      })
+      ).subscribe()
   }
 
   deleteItem(id: number) {
-    this.http.delete("items/" + id).pipe(tap(() => {
-      this.loadInitialData()
-      this.toastr.info('Елемент видалено', 'Інфо');
-    })).subscribe()
+    this.http.delete("items/" + id)
+    .pipe(
+      tap(() => {
+        this.loadInitialData()
+        this.toastr.info('Елемент видалено', 'Інфо');
+      }),
+      catchError((error) => {
+          this.toastr.error('Не вдалося з\'єднатися з сервером', 'Помилка мережі');
+          return throwError(() => error);
+      })
+    )
+    .subscribe()
   }
 
   filterItems(options: FilterOptions) {
